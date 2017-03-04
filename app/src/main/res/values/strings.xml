@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CSE4471</string>
+    <string name="title_activity_encryption">Encryption</string>
+    <string name="title_activity_caesar_encryption">CaesarEncryption</string>
+    <string name="title_activity_decryption">Decryption</string>
+</resources>
