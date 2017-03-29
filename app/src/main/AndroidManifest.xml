@@ -43,7 +43,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ahlbe.cse4471.MainActivity" />
         </activity>
-        <activity android:name=".ceasar_decryption"></activity>
+        <activity android:name=".CaesarDecryption"></activity>
     </application>
 
 </manifest>
