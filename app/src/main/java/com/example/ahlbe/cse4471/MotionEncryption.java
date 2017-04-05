@@ -38,7 +38,6 @@ public class MotionEncryption extends AppCompatActivity {
             }
 
             public void onSensorChanged(SensorEvent event) {
-                // Handle the events for which we registered
                 switch (event.sensor.getType()) {
                     case Sensor.TYPE_ACCELEROMETER:
                         System.arraycopy(event.values, 0, mValuesAccel, 0, 3);
@@ -47,7 +46,7 @@ public class MotionEncryption extends AppCompatActivity {
             };
         };
 
-        setListeners(sensorManager, mEventListener);
+        sensorManager.registerListener(mEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
 
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -66,13 +65,5 @@ public class MotionEncryption extends AppCompatActivity {
                 encryptionOutputTextView.setText(encrypted);
             }
         });
-    }
-    // Register the event listener and sensor type.
-    public void setListeners(SensorManager sensorManager, SensorEventListener mEventListener)
-    {
-        sensorManager.registerListener(mEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-                SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(mEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
-                SensorManager.SENSOR_DELAY_NORMAL);
     }
 }
