@@ -21,13 +21,13 @@ public class MainActivity extends AppCompatActivity {
         final Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                onClick2(v);
+                onClick1(v);
             }
         });
         final Button button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                onClick1(v);
+                onClick2(v);
             }
         });
     }

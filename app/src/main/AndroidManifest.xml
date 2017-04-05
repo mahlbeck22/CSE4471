@@ -34,6 +34,15 @@
                 android:value="com.example.ahlbe.cse4471.Encryption" />
         </activity>
         <activity
+            android:name=".ImageEncryption"
+            android:label="ImageEncryption"
+            android:parentActivityName=".Encryption"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ahlbe.cse4471.Encryption" />
+        </activity>
+        <activity
             android:name=".Decryption"
             android:label="@string/title_activity_decryption"
             android:parentActivityName=".MainActivity"
@@ -43,5 +52,6 @@
                 android:value="com.example.ahlbe.cse4471.MainActivity" />
         </activity>
         <activity android:name=".CaesarDecryption"></activity>
+        <activity android:name=".ImageDecryption"></activity>
     </application>
 </manifest>
