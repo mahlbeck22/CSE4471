@@ -4,13 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-
-import static android.R.attr.onClick;
-import static android.R.id.message;
-import static com.example.ahlbe.cse4471.R.id.editText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick1(View v) {
-        Intent intent = new Intent(this, Encryption.class);
+        Intent intent = new Intent(this, EncryptionActivity.class);
         startActivity(intent);
     }
 
     public void onClick2(View v) {
-        Intent intent = new Intent(this, Decryption.class);
+        Intent intent = new Intent(this, DecryptionActivity.class);
         startActivity(intent);
     }
 

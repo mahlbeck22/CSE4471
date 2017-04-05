@@ -6,26 +6,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class Decryption extends AppCompatActivity {
+public class EncryptionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_decryption);
-        final Button button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_encryption);
+        final Button button4 = (Button) findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onClick1(v);
             }
         });
-        final Button button8 = (Button) findViewById(R.id.button8);
-        button8.setOnClickListener(new View.OnClickListener() {
+        final Button button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onClick2(v);
             }
         });
-        final Button button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(new View.OnClickListener() {
+        final Button button5 = (Button) findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onClick3(v);
             }
@@ -33,19 +33,18 @@ public class Decryption extends AppCompatActivity {
     }
 
     public void onClick1(View v) {
-        Intent intent = new Intent(this, ImageDecryption.class);
+        Intent intent = new Intent(this, ImageEncryption.class);
         startActivity(intent);
     }
 
     public void onClick2(View v) {
-        Intent intent = new Intent(this, CaesarDecryption.class);
+        Intent intent = new Intent(this, CaesarEncryption.class);
         startActivity(intent);
     }
 
     public void onClick3(View v) {
-        Intent intent = new Intent(this, CaesarDecryption.class);
+        Intent intent = new Intent(this, MotionEncryption.class);
         startActivity(intent);
     }
 
-
-}
+    }

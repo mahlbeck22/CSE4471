@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Encryption"
+            android:name=".EncryptionActivity"
             android:label="@string/title_activity_encryption"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -27,23 +27,32 @@
         <activity
             android:name=".CaesarEncryption"
             android:label="@string/title_activity_caesar_encryption"
-            android:parentActivityName=".Encryption"
+            android:parentActivityName=".EncryptionActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ahlbe.cse4471.Encryption" />
+                android:value="com.example.ahlbe.cse4471.EncryptionActivity" />
         </activity>
         <activity
             android:name=".ImageEncryption"
             android:label="ImageEncryption"
-            android:parentActivityName=".Encryption"
+            android:parentActivityName=".EncryptionActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ahlbe.cse4471.Encryption" />
+                android:value="com.example.ahlbe.cse4471.EncryptionActivity" />
         </activity>
         <activity
-            android:name=".Decryption"
+            android:name=".MotionEncryption"
+            android:label="MotionEncryption"
+            android:parentActivityName=".EncryptionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ahlbe.cse4471.EncryptionActivity" />
+        </activity>
+        <activity
+            android:name=".DecryptionActivity"
             android:label="@string/title_activity_decryption"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
