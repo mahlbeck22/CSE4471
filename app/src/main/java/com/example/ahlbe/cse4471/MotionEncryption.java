@@ -29,7 +29,6 @@ public class MotionEncryption extends AppCompatActivity {
         encryptionOutputTextView = (TextView) findViewById(R.id.encryptionOutputTextView);
 
         SensorManager sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
-        final float[] mValuesMagnet = new float[3];
         final float[] mValuesAccel = new float[3];
         final float[] mValuesOrientation = new float[3];
         final float[] mRotationMatrix = new float[9];
@@ -44,10 +43,6 @@ public class MotionEncryption extends AppCompatActivity {
                     case Sensor.TYPE_ACCELEROMETER:
                         System.arraycopy(event.values, 0, mValuesAccel, 0, 3);
                         break;
-
-                    case Sensor.TYPE_MAGNETIC_FIELD:
-                        System.arraycopy(event.values, 0, mValuesMagnet, 0, 3);
-                        break;
                 }
             };
         };
@@ -59,7 +54,6 @@ public class MotionEncryption extends AppCompatActivity {
                 message = (EditText) findViewById(R.id.message);
                 String input = message.getText().toString();
                 keyOutputTextView.setText("Your Input: \n" + input + "\nEnd.");
-                SensorManager.getRotationMatrix(mRotationMatrix, null, mValuesAccel, mValuesMagnet);
                 SensorManager.getOrientation(mRotationMatrix, mValuesOrientation);
                 final CharSequence test;
                 test = "Key: " + (Math.round(mValuesOrientation[1] * 10.0) / 10.0);
