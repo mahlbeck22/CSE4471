@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ahlbe.cse4471">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -60,7 +61,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ahlbe.cse4471.MainActivity" />
         </activity>
-        <activity android:name=".CaesarDecryption"></activity>
-        <activity android:name=".ImageDecryption"></activity>
+        <activity android:name=".CaesarDecryption" />
+        <activity android:name=".ImageDecryption" />
+        <activity
+            android:name=".CaesarEncryptedText"
+            android:label="@string/title_activity_caesar_encrypted_text"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CaesarDecryptedText"
+            android:label="@string/title_activity_caesar_decrypted_text"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
+
 </manifest>

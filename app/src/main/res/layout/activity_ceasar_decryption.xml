@@ -4,6 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahlbe.cse4471.CaesarDecryption">
+    tools:context="com.example.ahlbe.cse4471.CaesarEncryption">
 
+
+    <TextView
+        android:text="Input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
+        android:id="@+id/textViewD5" />
+
+    <TextView
+        android:text="Key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextD2"
+        android:layout_alignRight="@+id/textViewD5"
+        android:layout_alignEnd="@+id/textViewD5"
+        android:layout_marginTop="78dp"
+        android:id="@+id/textViewD6" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textViewD6"
+        android:layout_alignRight="@+id/editTextD2"
+        android:layout_alignEnd="@+id/editTextD2"
+        android:layout_marginTop="42dp"
+        android:id="@+id/editTextD1" />
+
+    <Button
+        android:text="Decrypted It!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextD1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:id="@+id/buttonD1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords|textPersonName"
+        android:ems="10"
+        android:layout_marginTop="21dp"
+        android:id="@+id/editTextD2"
+        android:layout_below="@+id/textViewD5"
+        android:layout_centerHorizontal="true" />
 </android.widget.RelativeLayout>
