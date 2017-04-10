@@ -44,6 +44,15 @@
                 android:value="com.example.ahlbe.cse4471.EncryptionActivity" />
         </activity>
         <activity
+            android:name=".ImageEncryptionError"
+            android:label="ImageEncryptionError"
+            android:parentActivityName=".EncryptionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ahlbe.cse4471.EncryptionActivity" />
+        </activity>
+        <activity
             android:name=".MotionEncryption"
             android:label="MotionEncryption"
             android:parentActivityName=".EncryptionActivity"
@@ -72,5 +81,7 @@
             android:label="@string/title_activity_caesar_decrypted_text"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
 </manifest>

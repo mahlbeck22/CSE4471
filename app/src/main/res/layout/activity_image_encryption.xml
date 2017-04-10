@@ -9,14 +9,42 @@
         android:layout_width="182dp"
         android:layout_height="100dp"
         android:id="@+id/message"
-        android:hint="Message"
+        android:hint="Message:"
         android:inputType="text"
         android:imeOptions="actionSend"
-        android:layout_marginBottom="29dp"
-        android:layout_above="@+id/motionbutton"
+        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/motionbutton"
-        android:layout_alignStart="@+id/motionbutton" />
+        android:layout_alignStart="@+id/motionbutton"
+        android:layout_marginTop="29dp" />
     ... />
+
+    <EditText
+        android:id="@+id/urlLink"
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:hint="Url:"
+        android:imeOptions="actionSend"
+        android:inputType="text"
+        android:layout_marginTop="101dp"
+        android:layout_alignTop="@+id/message"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/motionbutton"
+        android:layout_alignStart="@+id/motionbutton" /><![CDATA[
+
+
+    ... />
+
+
+
+    ]]>
+
     <Button
         android:layout_width="182dp"
         android:layout_height="100dp"
@@ -25,10 +53,11 @@
         android:text="Photo"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="331dp"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/motionbutton"
+        android:onClick="onClickBtn"
+        android:layout_above="@+id/imgtextview"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="136dp"
-        android:id="@+id/motionbutton" />
+        android:layout_marginBottom="12dp" />
     <TextView
         android:layout_width="182dp"
         android:layout_height="100dp"

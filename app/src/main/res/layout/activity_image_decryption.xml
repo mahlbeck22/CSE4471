@@ -6,4 +6,57 @@
     android:layout_height="match_parent"
     tools:context="com.example.ahlbe.cse4471.ImageDecryption">
 
+    <EditText
+        android:id="@+id/encryptedMsg"
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:hint="Encrypted Message:"
+        android:imeOptions="actionSend"
+        android:inputType="text"
+        android:layout_marginTop="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:hint="Key:"
+        android:id="@+id/keyMsg"
+        android:layout_below="@+id/encryptedMsg"
+        android:imeOptions="actionSend"
+        android:inputType="text"
+        android:layout_alignLeft="@+id/encryptedMsg"
+        android:layout_alignStart="@+id/encryptedMsg" />
+
+    <Button
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:id="@+id/decryptBtn"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/keyMsg"
+        android:layout_alignLeft="@+id/keyMsg"
+        android:layout_alignStart="@+id/keyMsg"
+        android:text="Decrypt"
+        android:onClick="onClickImgDecBtn"/>
+
+    <TextView
+        android:id="@+id/decryptedMsg"
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/decryptBtn"
+        android:layout_alignStart="@+id/decryptBtn"
+        android:layout_marginBottom="30dp" /><![CDATA[
+
+
+
+
+
+
+    ... />
+
+
+
+
+]]>
 </android.widget.RelativeLayout>

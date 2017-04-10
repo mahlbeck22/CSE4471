@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahlbe.cse4471.ImageEncryptionError">
+
+    <TextView
+        android:id="@+id/errorMsg"
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/errorBtn"
+        android:layout_alignLeft="@+id/errorBtn"
+        android:layout_alignStart="@+id/errorBtn" />
+
+    <Button
+        android:layout_width="182dp"
+        android:layout_height="100dp"
+        android:id="@+id/errorBtn"
+        android:text="Go Back"
+        android:onClick="onClickError"
+        android:layout_marginRight="73dp"
+        android:layout_marginEnd="73dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="141dp" />
+
+
+</android.widget.RelativeLayout>
