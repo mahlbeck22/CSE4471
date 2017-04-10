@@ -27,7 +27,7 @@ public class ImageEncryptionError extends AppCompatActivity {
     }
 
     public void onClickError(View v) {
-        Intent intent = new Intent(this, ImageEncryption.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
