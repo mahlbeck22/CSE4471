@@ -29,6 +29,7 @@ public class MotionEncryption extends AppCompatActivity {
         encryptionOutputTextView = (TextView) findViewById(R.id.encryptionOutputTextView);
 
         SensorManager sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
+        final float[] mValuesMagnet = new float[3];
         final float[] mValuesAccel = new float[3];
         final float[] mValuesOrientation = new float[3];
         final float[] mRotationMatrix = new float[9];
@@ -38,21 +39,27 @@ public class MotionEncryption extends AppCompatActivity {
             }
 
             public void onSensorChanged(SensorEvent event) {
+                // Handle the events for which we registered
                 switch (event.sensor.getType()) {
                     case Sensor.TYPE_ACCELEROMETER:
                         System.arraycopy(event.values, 0, mValuesAccel, 0, 3);
+                        break;
+
+                    case Sensor.TYPE_MAGNETIC_FIELD:
+                        System.arraycopy(event.values, 0, mValuesMagnet, 0, 3);
                         break;
                 }
             };
         };
 
-        sensorManager.registerListener(mEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+        setListeners(sensorManager, mEventListener);
 
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 message = (EditText) findViewById(R.id.message);
                 String input = message.getText().toString();
                 keyOutputTextView.setText("Your Input: \n" + input + "\nEnd.");
+                SensorManager.getRotationMatrix(mRotationMatrix, null, mValuesAccel, mValuesMagnet);
                 SensorManager.getOrientation(mRotationMatrix, mValuesOrientation);
                 final CharSequence test;
                 test = "Key: " + (Math.round(mValuesOrientation[1] * 10.0) / 10.0);
@@ -65,5 +72,13 @@ public class MotionEncryption extends AppCompatActivity {
                 encryptionOutputTextView.setText(encrypted);
             }
         });
+    }
+    // Register the event listener and sensor type.
+    public void setListeners(SensorManager sensorManager, SensorEventListener mEventListener)
+    {
+        sensorManager.registerListener(mEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(mEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+                SensorManager.SENSOR_DELAY_NORMAL);
     }
 }
