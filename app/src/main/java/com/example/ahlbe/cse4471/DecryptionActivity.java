@@ -38,7 +38,7 @@ public class DecryptionActivity extends AppCompatActivity {
     }
 
     public void onClick2(View v) {
-        Intent intent = new Intent(this, CaesarDecryption.class);
+        Intent intent = new Intent(this, MotionDecryption.class);
         startActivity(intent);
     }
 

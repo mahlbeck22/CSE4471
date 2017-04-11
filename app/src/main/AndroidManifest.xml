@@ -62,6 +62,15 @@
                 android:value="com.example.ahlbe.cse4471.EncryptionActivity" />
         </activity>
         <activity
+            android:name=".MotionDecryption"
+            android:label="MotionDecryption"
+            android:parentActivityName=".DecryptionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ahlbe.cse4471.DecryptionActivity" />
+        </activity>
+        <activity
             android:name=".DecryptionActivity"
             android:label="@string/title_activity_decryption"
             android:parentActivityName=".MainActivity"
