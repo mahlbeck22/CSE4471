@@ -66,7 +66,7 @@ public class MotionEncryption extends AppCompatActivity {
                 keyOutputTextView.setText(test);
                 String key = String.valueOf(Math.round(mValuesOrientation[1] * 10.0) / 10.0);
                 String salt = "boop";
-                byte[] iv = new byte[16];
+                byte[] iv = {-45, -11, 75, -25, 86, 54, 75, 87, -33, 63, -61, 3, 44, -9, 120, -53};
                 Encryption encryption = Encryption.getDefault(key, salt, iv);
                 String encrypted = encryption.encryptOrNull(input);
                 encryptionOutputTextView.setText(encrypted);
