@@ -1,6 +1,11 @@
 package com.example.ahlbe.cse4471;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -70,6 +75,17 @@ public class MotionEncryption extends AppCompatActivity {
                 Encryption encryption = Encryption.getDefault(key, salt, iv);
                 String encrypted = encryption.encryptOrNull(input);
                 encryptionOutputTextView.setText(encrypted);
+                File root = new File(Environment.getExternalStorageDirectory().toString());
+                File writeFile = new File(root, "motionEncryptions.txt");
+                FileWriter writer = null;
+                try {
+                    writer = new FileWriter(writeFile);
+                    writer.append(encrypted);
+                    writer.flush();
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
