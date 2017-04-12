@@ -1,18 +1,13 @@
 package com.example.ahlbe.cse4471;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
+import java.io.FileOutputStream;
 import android.os.Bundle;
-import android.os.Environment;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -70,20 +65,20 @@ public class MotionEncryption extends AppCompatActivity {
                 test = "Key: " + (Math.round(mValuesOrientation[1] * 10.0) / 10.0);
                 keyOutputTextView.setText(test);
                 String key = String.valueOf(Math.round(mValuesOrientation[1] * 10.0) / 10.0);
-                String salt = "boop";
+                String salt = "Salt";
                 byte[] iv = {-45, -11, 75, -25, 86, 54, 75, 87, -33, 63, -61, 3, 44, -9, 120, -53};
                 Encryption encryption = Encryption.getDefault(key, salt, iv);
                 String encrypted = encryption.encryptOrNull(input);
                 encryptionOutputTextView.setText(encrypted);
-                File root = new File(Environment.getExternalStorageDirectory().toString());
-                File writeFile = new File(root, "motionEncryptions.txt");
-                FileWriter writer = null;
+
+                String filename = "motionEncryptions.txt";
+                FileOutputStream outputStream;
+
                 try {
-                    writer = new FileWriter(writeFile);
-                    writer.append(encrypted);
-                    writer.flush();
-                    writer.close();
-                } catch (IOException e) {
+                    outputStream = openFileOutput(filename, MODE_APPEND);
+                    outputStream.write(encrypted.getBytes());
+                    outputStream.close();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

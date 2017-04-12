@@ -1,5 +1,11 @@
 package com.example.ahlbe.cse4471;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,6 +22,13 @@ public class MotionDecryption extends AppCompatActivity {
     EditText message;
     TextView keyOutputTextView;
     TextView encryptionOutputTextView;
+    EditText textMsg;
+    TextView tv;
+    String salt = "Salt";
+    String encrypt = "";
+    String key = "";
+    private byte[] iv = {-45, -11, 75, -25, 86, 54, 75, 87, -33, 63, -61, 3, 44, -9, 120, -53};
+    String decrypted = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +38,27 @@ public class MotionDecryption extends AppCompatActivity {
         b = (Button) findViewById(R.id.motionbutton);
         keyOutputTextView = (TextView) findViewById(R.id.keyOutputTextView);
         encryptionOutputTextView = (TextView) findViewById(R.id.encryptionOutputTextView);
+
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput("motionEncryptions.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        InputStreamReader isr = new InputStreamReader(fis);
+        BufferedReader bufferedReader = new BufferedReader(isr);
+        StringBuilder sb = new StringBuilder();
+        String line;
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append("\n" + line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        TextView encryptedTextTextView = (TextView)findViewById(R.id.encryptedTextTextView);
+        encryptedTextTextView.setText(sb);
 
         SensorManager sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
         final float[] mValuesMagnet = new float[3];
@@ -54,16 +88,17 @@ public class MotionDecryption extends AppCompatActivity {
 
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                message = (EditText) findViewById(R.id.message);
-                String input = message.getText().toString();
-                keyOutputTextView.setText("Your Input: \n" + input + "\nEnd.");
                 SensorManager.getRotationMatrix(mRotationMatrix, null, mValuesAccel, mValuesMagnet);
                 SensorManager.getOrientation(mRotationMatrix, mValuesOrientation);
-                final CharSequence test;
-                test = "Key: " + (Math.round(mValuesOrientation[1] * 10.0) / 10.0);
-                keyOutputTextView.setText(test);
                 String key = String.valueOf(Math.round(mValuesOrientation[1] * 10.0) / 10.0);
-                // TODO
+
+                message = (EditText) findViewById(R.id.textMsg);
+                encrypt = message.getText().toString();
+                Encryption encryption = Encryption.getDefault(key, salt, iv);
+                decrypted = encryption.decryptOrNull(encrypt);
+
+                tv = encryptionOutputTextView;
+                tv.setText("Message \n" + decrypted);
             }
         });
     }

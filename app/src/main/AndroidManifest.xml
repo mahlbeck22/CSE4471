@@ -90,7 +90,7 @@
             android:label="@string/title_activity_caesar_decrypted_text"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
