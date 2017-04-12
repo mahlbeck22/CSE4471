@@ -15,8 +15,7 @@
         android:text="Decryption"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="331dp"
-        android:layout_marginBottom="40dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/button"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button" />
 
@@ -57,7 +56,7 @@
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="35dp" />
+        android:layout_marginTop="14dp" />
 
     <Button
         android:id="@+id/button"
@@ -68,8 +67,8 @@
         android:text="Encryption"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="149dp"
-        android:layout_above="@+id/button2"
+        android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp" />
+        android:layout_marginTop="15dp" />
 
 </android.widget.RelativeLayout>

@@ -6,47 +6,74 @@
     android:layout_height="match_parent"
     tools:context="com.example.ahlbe.cse4471.ImageDecryption">
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="397dp"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:text="Your encrypted messages:"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/encryptedTextTextView"
+        android:layout_width="182dp"
+        android:layout_height="120dp"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:longClickable="true"
+        android:text="You have no encrypted messages."
+        android:textIsSelectable="true"
+        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/decryptBtn"
+        android:layout_alignStart="@+id/decryptBtn" />
+
     <EditText
         android:id="@+id/encryptedMsg"
         android:layout_width="182dp"
         android:layout_height="100dp"
         android:hint="Encrypted Message:"
-        android:imeOptions="actionSend"
+        android:gravity="center_horizontal"
         android:inputType="text"
-        android:layout_marginTop="13dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true" />
 
     <EditText
         android:layout_width="182dp"
         android:layout_height="100dp"
-        android:hint="Key:"
+        android:hint="Photo Key:"
+        android:gravity="center_horizontal"
         android:id="@+id/keyMsg"
-        android:layout_below="@+id/encryptedMsg"
         android:imeOptions="actionSend"
         android:inputType="text"
-        android:layout_alignLeft="@+id/encryptedMsg"
-        android:layout_alignStart="@+id/encryptedMsg" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true" />
 
     <Button
         android:layout_width="182dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:id="@+id/decryptBtn"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/keyMsg"
-        android:layout_alignLeft="@+id/keyMsg"
-        android:layout_alignStart="@+id/keyMsg"
         android:text="Decrypt"
-        android:onClick="onClickImgDecBtn"/>
+        android:onClick="onClickImgDecBtn"
+        android:layout_above="@+id/decryptedMsg"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/decryptedMsg"
+        android:gravity="center_horizontal"
         android:layout_width="182dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/decryptBtn"
-        android:layout_alignStart="@+id/decryptBtn"
-        android:layout_marginBottom="30dp" /><![CDATA[
+        android:layout_alignStart="@+id/decryptBtn" /><![CDATA[
 
 
 

@@ -16,8 +16,7 @@ import android.hardware.SensorManager;
 public class MotionEncryption extends AppCompatActivity {
     private Button b;
     EditText message;
-    TextView keyOutputTextView;
-    TextView encryptionOutputTextView;
+    TextView successTextBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +24,7 @@ public class MotionEncryption extends AppCompatActivity {
         setContentView(R.layout.activity_motion_encryption);
 
         b = (Button) findViewById(R.id.motionbutton);
-        keyOutputTextView = (TextView) findViewById(R.id.keyOutputTextView);
-        encryptionOutputTextView = (TextView) findViewById(R.id.encryptionOutputTextView);
+        successTextBox = (TextView) findViewById(R.id.successTextBox);
 
         SensorManager sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
         final float[] mValuesMagnet = new float[3];
@@ -58,18 +56,15 @@ public class MotionEncryption extends AppCompatActivity {
             public void onClick(View view) {
                 message = (EditText) findViewById(R.id.message);
                 String input = message.getText().toString();
-                keyOutputTextView.setText("Your Input: \n" + input + "\nEnd.");
                 SensorManager.getRotationMatrix(mRotationMatrix, null, mValuesAccel, mValuesMagnet);
                 SensorManager.getOrientation(mRotationMatrix, mValuesOrientation);
                 final CharSequence test;
                 test = "Key: " + (Math.round(mValuesOrientation[1] * 10.0) / 10.0);
-                keyOutputTextView.setText(test);
                 String key = String.valueOf(Math.round(mValuesOrientation[1] * 10.0) / 10.0);
                 String salt = "Salt";
                 byte[] iv = {-45, -11, 75, -25, 86, 54, 75, 87, -33, 63, -61, 3, 44, -9, 120, -53};
                 Encryption encryption = Encryption.getDefault(key, salt, iv);
                 String encrypted = encryption.encryptOrNull(input);
-                encryptionOutputTextView.setText(encrypted);
 
                 String filename = "motionEncryptions.txt";
                 FileOutputStream outputStream;
@@ -78,6 +73,7 @@ public class MotionEncryption extends AppCompatActivity {
                     outputStream = openFileOutput(filename, MODE_APPEND);
                     outputStream.write(encrypted.getBytes());
                     outputStream.close();
+                    successTextBox.setText("Encrypted message: \n" + encrypted);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

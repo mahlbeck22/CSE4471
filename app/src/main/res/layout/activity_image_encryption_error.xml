@@ -10,10 +10,9 @@
         android:id="@+id/errorMsg"
         android:layout_width="182dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="24dp"
         android:layout_above="@+id/errorBtn"
-        android:layout_alignLeft="@+id/errorBtn"
-        android:layout_alignStart="@+id/errorBtn" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="182dp"
@@ -21,12 +20,10 @@
         android:id="@+id/errorBtn"
         android:text="Go Back"
         android:onClick="onClickError"
-        android:layout_marginRight="73dp"
-        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="140dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="141dp" />
+        android:layout_alignLeft="@+id/errorMsg"
+        android:layout_alignStart="@+id/errorMsg" />
 
 
 </android.widget.RelativeLayout>

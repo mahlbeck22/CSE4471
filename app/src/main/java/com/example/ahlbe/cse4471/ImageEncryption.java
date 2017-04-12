@@ -11,6 +11,8 @@ import android.view.*;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.io.FileOutputStream;
+
 
 public class ImageEncryption extends AppCompatActivity {
     private Button b;
@@ -40,8 +42,6 @@ public class ImageEncryption extends AppCompatActivity {
 
         link = (EditText) findViewById(R.id.urlLink);
         message = (EditText) findViewById(R.id.message);
-
-
     }
 
     public void onClickBtn(View v) {
@@ -55,8 +55,17 @@ public class ImageEncryption extends AppCompatActivity {
                 Encryption encryption = Encryption.getDefault(url, salt, iv);
                 encrypted = encryption.encryptOrNull(msg);
 
-                tv.setText("Encrypted message: \n" + encrypted);
-                //Log.e("Encrypted text: ", encrypted);
+                String filename = "imageEncryptions.txt";
+                FileOutputStream outputStream;
+
+                try {
+                    outputStream = openFileOutput(filename, MODE_APPEND);
+                    outputStream.write(encrypted.getBytes());
+                    outputStream.close();
+                    tv.setText("Encrypted message: \n" + encrypted);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override

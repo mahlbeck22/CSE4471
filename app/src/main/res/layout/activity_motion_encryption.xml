@@ -19,10 +19,10 @@
     ... />
     <Button
         android:layout_width="182dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_column="0"
         android:layout_row="4"
-        android:text="Begin Motion Action"
+        android:text="Encrypt with Phone Orientation"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="331dp"
         android:layout_alignParentBottom="true"
@@ -30,20 +30,12 @@
         android:layout_marginBottom="136dp"
         android:id="@+id/motionbutton" />
     <TextView
-        android:id="@+id/keyOutputTextView"
+        android:id="@+id/successTextBox"
         android:layout_width="182dp"
         android:layout_height="50dp"
         android:layout_alignLeft="@+id/motionbutton"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/motionbutton"
         android:layout_marginBottom="63dp" />
-    <TextView
-        android:layout_width="182dp"
-        android:layout_height="50dp"
-        android:id="@+id/encryptionOutputTextView"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/keyOutputTextView"
-        android:layout_alignStart="@+id/keyOutputTextView" />
 
 </android.widget.RelativeLayout>

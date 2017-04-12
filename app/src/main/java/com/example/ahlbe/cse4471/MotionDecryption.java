@@ -42,23 +42,22 @@ public class MotionDecryption extends AppCompatActivity {
         FileInputStream fis = null;
         try {
             fis = openFileInput("motionEncryptions.txt");
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            try {
+                while ((line = bufferedReader.readLine()) != null) {
+                    sb.append("\n\n" + line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            TextView encryptedTextTextView = (TextView)findViewById(R.id.encryptedTextTextView);
+            encryptedTextTextView.setText(sb);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader bufferedReader = new BufferedReader(isr);
-        StringBuilder sb = new StringBuilder();
-        String line;
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-                sb.append("\n" + line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        TextView encryptedTextTextView = (TextView)findViewById(R.id.encryptedTextTextView);
-        encryptedTextTextView.setText(sb);
 
         SensorManager sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
         final float[] mValuesMagnet = new float[3];
